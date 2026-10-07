@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ElectroMart - Premium electronic devices e-commerce store. Discover next-gen smartphones, laptops, headphones, smartwatches, cameras, and gaming gear with exclusive deals.">
+  <meta name="keywords" content="electronics, smartphones, laptops, headphones, smartwatches, gadgets, gaming, deals">
+  <title>ElectroMart | Next-Gen Technology Store</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="container announcement-content">
+      <div class="announcement-text">
+        <span class="badge-pulse"><i class="fa-solid fa-bolt"></i> FLASH SALE</span>
+        <span>Get up to 40% OFF on Flagship Devices + Free Express Shipping worldwide!</span>
+      </div>
+      <div class="announcement-links">
+        <a href="#deals"><i class="fa-solid fa-clock"></i> Limited Time Offer</a>
+        <span class="separator">|</span>
+        <a href="#contact"><i class="fa-solid fa-headset"></i> 24/7 Support</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-container">
+      <!-- Logo -->
+      <a href="#home" class="logo-brand" id="logoBrand">
+        <div class="logo-icon">
+          <i class="fa-solid fa-microchip"></i>
+        </div>
+        <div class="logo-text">
+          <span class="logo-primary">Electro</span><span class="logo-accent">Mart</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="desktop-nav" id="desktopNav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="#shop" class="nav-link"><i class="fa-solid fa-bag-shopping"></i> Shop</a></li>
+          <li><a href="#categories" class="nav-link"><i class="fa-solid fa-layer-group"></i> Categories</a></li>
+          <li><a href="#deals" class="nav-link"><i class="fa-solid fa-fire"></i> Deals <span class="hot-badge">HOT</span></a></li>
+          <li><a href="#about" class="nav-link"><i class="fa-solid fa-circle-info"></i> About</a></li>
+          <li><a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Action Controls -->
+      <div class="header-actions">
+        <!-- Live Quick Search Trigger / Form -->
+        <div class="header-search-wrap">
+          <button class="icon-btn search-toggle-btn" id="searchToggleBtn" title="Search Devices" aria-label="Search Devices">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <div class="search-dropdown" id="searchDropdown">
+            <div class="search-input-group">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="quickSearchInput" placeholder="Search iPhone, MacBook, Sony..." autocomplete="off">
+              <button type="button" class="search-clear-btn" id="searchClearBtn" title="Clear">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <div class="search-preview-results" id="searchPreviewResults">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Wishlist Icon with Dynamic Badge -->
+        <button class="icon-btn wishlist-btn" id="wishlistToggleBtn" title="My Wishlist" aria-label="View Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-count wishlist-count" id="wishlistBadge">0</span>
+        </button>
+
+        <!-- Shopping Cart Icon with Dynamic Badge -->
+        <button class="icon-btn cart-btn" id="cartToggleBtn" title="Shopping Cart" aria-label="View Shopping Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge-count cart-count" id="cartBadge">0</span>
+        </button>
+
+        <!-- Mobile Hamburger Menu Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Mobile Navigation" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <div class="drawer-header">
+      <div class="logo-text">
+        <span class="logo-primary">Electro</span><span class="logo-accent">Mart</span>
+      </div>
+      <button class="drawer-close-btn" id="mobileNavCloseBtn" aria-label="Close Navigation">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="mobile-search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="mobileSearchInput" placeholder="Search tech gadgets...">
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="#home" class="mobile-link active"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="#shop" class="mobile-link"><i class="fa-solid fa-bag-shopping"></i> Shop</a></li>
+      <li><a href="#categories" class="mobile-link"><i class="fa-solid fa-layer-group"></i> Categories</a></li>
+      <li><a href="#deals" class="mobile-link"><i class="fa-solid fa-fire"></i> Today's Deals <span class="hot-badge">HOT</span></a></li>
+      <li><a href="#about" class="mobile-link"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+      <li><a href="#contact" class="mobile-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+    </ul>
+    <div class="mobile-drawer-footer">
+      <div class="drawer-contact-item">
+        <i class="fa-solid fa-phone"></i> +1 (800) 555-TECH
+      </div>
+      <div class="drawer-contact-item">
+        <i class="fa-solid fa-envelope"></i> support@electromart.com
+      </div>
+    </div>
+  </div>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="home">
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-tag">
+            <span class="tag-pulse"></span>
+            <span>New Generation Innovation 2026</span>
+          </div>
+          <h1 class="hero-title">
+            Next-Gen Technology, <br>
+            <span class="gradient-text">Made for You</span>
+          </h1>
+          <p class="hero-description">
+            Experience peak performance and future-ready engineering. Explore curated smartphones, high-tier ultrabooks, audiophile acoustics, and smart wearables backed by manufacturer warranties.
+          </p>
+          <div class="hero-buttons">
+            <a href="#shop" class="btn btn-primary btn-lg" id="heroShopNowBtn">
+              <span>Shop Now</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="#deals" class="btn btn-outline btn-lg" id="heroExploreDealsBtn">
+              <i class="fa-solid fa-tag"></i>
+              <span>Explore Deals</span>
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">50K+</span>
+              <span class="stat-label">Happy Techies</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Genuine Devices</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">4.9/5</span>
+              <span class="stat-label">Customer Rating</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card-showcase">
+            <div class="showcase-glow-circle"></div>
+            <div class="device-badge floating-badge-top">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>2-Year Warranty</span>
+            </div>
+            <div class="device-badge floating-badge-bottom">
+              <i class="fa-solid fa-microchip"></i>
+              <span>Neural Bionic Pro</span>
+            </div>
+            <div class="hero-device-wrapper">
+              <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=900&q=80"
+                   alt="Next-Gen Flagship Smartphone" 
+                   class="hero-img"
+                   id="heroDeviceImg"
+                   loading="eager">
+            </div>
+            <div class="hero-card-meta">
+              <div class="hero-card-info">
+                <span class="hero-card-category">FLAGSHIP SHOWCASE</span>
+                <h3 class="hero-card-name">Titanium Pro Ultra</h3>
+                <div class="hero-card-price">
+                  <span class="price-current">$1,199.00</span>
+                  <span class="price-old">$1,399.00</span>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-sm hero-quick-add" onclick="window.quickAddHeroProduct()">
+                <i class="fa-solid fa-plus"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST & FEATURES HIGHLIGHTS BAR -->
+    <section class="trust-bar">
+      <div class="container trust-container">
+        <div class="trust-feature">
+          <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
+          <div class="feature-text">
+            <h4>Free Express Shipping</h4>
+            <p>On all orders above $99.00</p>
+          </div>
+        </div>
+        <div class="trust-feature">
+          <div class="feature-icon"><i class="fa-solid fa-shield-check"></i></div>
+          <div class="feature-text">
+            <h4>2-Year Official Warranty</h4>
+            <p>100% Guaranteed Protection</p>
+          </div>
+        </div>
+        <div class="trust-feature">
+          <div class="feature-icon"><i class="fa-solid fa-arrow-rotate-left"></i></div>
+          <div class="feature-text">
+            <h4>30-Day Hassle-Free Returns</h4>
+            <p>Instant money-back policy</p>
+          </div>
+        </div>
+        <div class="trust-feature">
+          <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
+          <div class="feature-text">
+            <h4>24/7 Tech Specialist</h4>
+            <p>Dedicated engineer assistance</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORIES SECTION -->
+    <section class="categories-section" id="categories">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">DISCOVER HARDWARE</span>
+          <h2 class="section-title">Explore by Category</h2>
+          <p class="section-desc">Browse our top product domains engineered for creators, gamers, professionals, and daily innovators.</p>
+        </div>
+
+        <div class="categories-grid" id="categoriesGrid">
+          <!-- Populated by JavaScript or Static Template with 8 categories -->
+          <div class="category-card" data-category="Smartphones">
+            <div class="cat-img-box">
+              <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=400&q=80" alt="Smartphones">
+            </div>
+            <div class="cat-info">
+              <div class="cat-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+              <h3 class="cat-title">Smartphones</h3>
+              <p class="cat-count">18+ Devices</p>
+            </div>
+            <span class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+
+          <div class="category-card" data-category="Laptops">
+            <div class="cat-img-box">
+              <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80" alt="Laptops">
+            </div>
+            <div class="cat-info">
+              <div class="cat-icon"><i class="fa-solid fa-laptop"></i></div>
+              <h3 class="cat-title">Laptops</h3>
+              <p class="cat-count">14+ Models</p>
+            </div>
+            <span class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+
+          <div class="category-card" data-category="Headphones">
+            <div class="cat-img-box">
+              <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=400&q=80" alt="Headphones">
+            </div>
+            <div class="cat-info">
+              <div class="cat-icon"><i class="fa-solid fa-headphones-simple"></i></div>
+              <h3 class="cat-title">Headphones</h3>
+              <p class="cat-count">22+ Audio Gear</p>
+            </div>
+            <span class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+
+          <div class="category-card" data-category="Smart Watches">
+            <div class="cat-img-box">
+              <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80" alt="Smart Watches">
+            </div>
+            <div class="cat-info">
+              <div class="cat-icon"><i class="fa-solid fa-clock"></i></div>
+              <h3 class="cat-title">Smart Watches</h3>
+              <p class="cat-count">12+ Wearables</p>
+            </div>
+            <span class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+
+          <div class="category-card" data-category="Tablets">
+            <div class="cat-img-box">
+              <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=400&q=80" alt="Tablets">
+            </div>
+            <div class="cat-info">
+              <div class="cat-icon"><i class="fa-solid fa-tablet-screen-button"></i></div>
+              <h3 class="cat-title">Tablets</h3>
+              <p class="cat-count">10+ Tablets</p>
+            </div>
+            <span class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+
+          <div class="category-card" data-category="Cameras">
+            <div class="cat-img-box">
+              <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=400&q=80" alt="Cameras">
+            </div>
+            <div class="cat-info">
+              <div class="cat-icon"><i class="fa-solid fa-camera"></i></div>
+              <h3 class="cat-title">Cameras</h3>
+              <p class="cat-count">15+ Optics</p>
+            </div>
+            <span class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+
+          <div class="category-card" data-category="Gaming">
+            <div class="cat-img-box">
+              <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=400&q=80" alt="Gaming">
+            </div>
+            <div class="cat-info">
+              <div class="cat-icon"><i class="fa-solid fa-gamepad"></i></div>
+              <h3 class="cat-title">Gaming</h3>
+              <p class="cat-count">25+ Consoles & Rigs</p>
+            </div>
+            <span class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+
+          <div class="category-card" data-category="Accessories">
+            <div class="cat-img-box">
+              <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=400&q=80" alt="Accessories">
+            </div>
+            <div class="cat-info">
+              <div class="cat-icon"><i class="fa-solid fa-plug"></i></div>
+              <h3 class="cat-title">Accessories</h3>
+              <p class="cat-count">40+ Peripherals</p>
+            </div>
+            <span class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TODAY'S BEST DEALS SECTION -->
+    <section class="deals-section" id="deals">
+      <div class="container">
+        <div class="deals-banner">
+          <div class="deals-header">
+            <div class="deals-title-box">
+              <span class="badge-fire"><i class="fa-solid fa-fire"></i> FLASH SALE</span>
+              <h2 class="deals-title">Today's Best Deals</h2>
+              <p>Hurry! High-demand tech units at seasonal clearance rates.</p>
+            </div>
+            <!-- Live Countdown Timer -->
+            <div class="countdown-wrapper" id="dealsCountdown">
+              <div class="countdown-unit">
+                <span class="countdown-number" id="countdownHours">08</span>
+                <span class="countdown-label">Hours</span>
+              </div>
+              <span class="countdown-colon">:</span>
+              <div class="countdown-unit">
+                <span class="countdown-number" id="countdownMinutes">45</span>
+                <span class="countdown-label">Minutes</span>
+              </div>
+              <span class="countdown-colon">:</span>
+              <div class="countdown-unit">
+                <span class="countdown-number" id="countdownSeconds">20</span>
+                <span class="countdown-label">Seconds</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured Flash Deals Row -->
+          <div class="deals-grid" id="dealsGrid">
+            <!-- Dynamically populated flash deal items -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS SECTION -->
+    <section class="shop-section" id="shop">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">OUR CATALOG</span>
+          <h2 class="section-title">Featured Tech Products</h2>
+          <p class="section-desc">Hand-picked bestsellers, top-tier audio gear, ultrabooks, and studio peripherals.</p>
+        </div>
+
+        <!-- Filter, Search and Sort Bar -->
+        <div class="controls-toolbar">
+          <!-- Category Filter Tabs -->
+          <div class="filter-tabs-wrapper">
+            <div class="filter-tabs" id="filterTabs">
+              <button class="filter-btn active" data-filter="All">
+                <i class="fa-solid fa-border-all"></i> All
+              </button>
+              <button class="filter-btn" data-filter="Smartphones">
+                <i class="fa-solid fa-mobile-screen-button"></i> Smartphones
+              </button>
+              <button class="filter-btn" data-filter="Laptops">
+                <i class="fa-solid fa-laptop"></i> Laptops
+              </button>
+              <button class="filter-btn" data-filter="Headphones">
+                <i class="fa-solid fa-headphones-simple"></i> Headphones
+              </button>
+              <button class="filter-btn" data-filter="Smart Watches">
+                <i class="fa-solid fa-clock"></i> Smart Watches
+              </button>
+              <button class="filter-btn" data-filter="Tablets">
+                <i class="fa-solid fa-tablet-screen-button"></i> Tablets
+              </button>
+              <button class="filter-btn" data-filter="Cameras">
+                <i class="fa-solid fa-camera"></i> Cameras
+              </button>
+              <button class="filter-btn" data-filter="Gaming">
+                <i class="fa-solid fa-gamepad"></i> Gaming
+              </button>
+              <button class="filter-btn" data-filter="Accessories">
+                <i class="fa-solid fa-plug"></i> Accessories
+              </button>
+            </div>
+          </div>
+
+          <!-- Search & Sorting Row -->
+          <div class="toolbar-subrow">
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="catalogSearchInput" placeholder="Search product name, category...">
+              <button class="search-reset" id="catalogSearchReset" title="Clear search">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+
+            <div class="sort-box">
+              <label for="catalogSortSelect"><i class="fa-solid fa-arrow-down-short-wide"></i> Sort by:</label>
+              <select id="catalogSortSelect">
+                <option value="featured">Featured / Newest</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Highest Customer Rating</option>
+                <option value="discount">Biggest Discount</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Products Results Info -->
+        <div class="results-meta">
+          <p id="resultsCount">Showing 14 products</p>
+          <div class="active-filter-badge" id="activeFilterBadge" style="display: none;">
+            <span>Category: <strong id="activeFilterName">All</strong></span>
+            <button id="clearActiveFilter" title="Reset filter"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+        </div>
+
+        <!-- Products Grid Container -->
+        <div class="products-grid" id="productsGrid">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <!-- Empty State Message -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+          <div class="empty-icon"><i class="fa-solid fa-box-open"></i></div>
+          <h3>No Devices Found</h3>
+          <p>We couldn't find any electronics matching your criteria. Try adjusting your search keyword or selected category.</p>
+          <button class="btn btn-primary" id="resetFiltersBtn">Reset All Filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section" id="about">
+      <div class="container about-container">
+        <div class="about-image-column">
+          <div class="about-image-card">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80" alt="ElectroMart Technology Hub">
+            <div class="about-experience-badge">
+              <span class="exp-num">12+</span>
+              <span class="exp-text">Years of Tech Excellence</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-content-column">
+          <span class="section-subtitle">ABOUT ELECTROMART</span>
+          <h2 class="section-title">Innovating Your Digital Lifestyle Since 2014</h2>
+          <p class="about-text">
+            ElectroMart was founded on a simple promise: make cutting-edge electronic devices accessible, authentic, and backed by world-class support. We partner directly with premium manufacturers to deliver authentic silicon, stunning displays, and certified performance.
+          </p>
+          <div class="about-perks">
+            <div class="perk-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <div>
+                <h5>100% Factory Sealed & Certified</h5>
+                <p>Zero gray-market inventory, verified serial numbers.</p>
+              </div>
+            </div>
+            <div class="perk-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <div>
+                <h5>Express Global Fulfillment</h5>
+                <p>Climate-controlled expedited transport within 48 hours.</p>
+              </div>
+            </div>
+            <div class="perk-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <div>
+                <h5>Eco-Conscious Packaging</h5>
+                <p>Sustainable biodegradable cushioning for every gadget shipment.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER SECTION -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-card">
+          <div class="newsletter-glow"></div>
+          <div class="newsletter-content">
+            <div class="newsletter-icon">
+              <i class="fa-solid fa-paper-plane"></i>
+            </div>
+            <span class="section-subtitle">STAY INFORMED</span>
+            <h2 class="newsletter-title">Get the Latest Tech Deals</h2>
+            <p class="newsletter-desc">Subscribe to receive exclusive drops, early bird VIP discount codes, and hands-on reviews right into your inbox.</p>
+            
+            <form class="newsletter-form" id="newsletterForm" novalidate>
+              <div class="newsletter-input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" id="newsletterEmail" placeholder="Enter your business or personal email..." required>
+                <button type="submit" class="btn btn-primary" id="newsletterSubmitBtn">
+                  <span>Subscribe</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+              <div class="newsletter-message" id="newsletterMessage"></div>
+            </form>
+            <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam ever. Unsubscribe with 1-click anytime.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">GET IN TOUCH</span>
+          <h2 class="section-title">We're Here to Help</h2>
+          <p class="section-desc">Have a technical inquiry, corporate procurement request, or order question? Reach out to our specialist team.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fa-solid fa-headset"></i></div>
+            <h4>Customer Care</h4>
+            <p>Direct live telephone hotline</p>
+            <a href="tel:+18005558324" class="contact-link">+1 (800) 555-TECH</a>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+            <h4>Email Support</h4>
+            <p>Guaranteed response in < 2 hours</p>
+            <a href="mailto:support@electromart.com" class="contact-link">support@electromart.com</a>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <h4>Headquarters</h4>
+            <p>Silicon Valley Flagship Hub</p>
+            <span class="contact-link">742 Evergreen Silicon Blvd, CA</span>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fa-solid fa-shield-heart"></i></div>
+            <h4>Warranty Service</h4>
+            <p>Certified repair & replacement</p>
+            <a href="#about" class="contact-link">warranty@electromart.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PROFESSIONAL FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-grid">
+        <!-- Brand Summary -->
+        <div class="footer-col footer-col-brand">
+          <a href="#home" class="logo-brand footer-logo">
+            <div class="logo-icon"><i class="fa-solid fa-microchip"></i></div>
+            <div class="logo-text">
+              <span class="logo-primary">Electro</span><span class="logo-accent">Mart</span>
+            </div>
+          </a>
+          <p class="footer-bio">
+            ElectroMart is your trusted authorized destination for next-generation consumer electronics, flagship computers, acoustics, and smart gear. Engineered for the digital age.
+          </p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+            <li><a href="#shop"><i class="fa-solid fa-chevron-right"></i> All Products</a></li>
+            <li><a href="#categories"><i class="fa-solid fa-chevron-right"></i> Categories</a></li>
+            <li><a href="#deals"><i class="fa-solid fa-chevron-right"></i> Flash Deals</a></li>
+            <li><a href="#about"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+            <li><a href="#contact"><i class="fa-solid fa-chevron-right"></i> Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Categories -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Categories</h4>
+          <ul class="footer-links">
+            <li><a href="#shop" onclick="window.filterByCategory('Smartphones')"><i class="fa-solid fa-chevron-right"></i> Smartphones</a></li>
+            <li><a href="#shop" onclick="window.filterByCategory('Laptops')"><i class="fa-solid fa-chevron-right"></i> Laptops & MacBooks</a></li>
+            <li><a href="#shop" onclick="window.filterByCategory('Headphones')"><i class="fa-solid fa-chevron-right"></i> ANC Headphones</a></li>
+            <li><a href="#shop" onclick="window.filterByCategory('Smart Watches')"><i class="fa-solid fa-chevron-right"></i> Smart Watches</a></li>
+            <li><a href="#shop" onclick="window.filterByCategory('Tablets')"><i class="fa-solid fa-chevron-right"></i> Pro Tablets</a></li>
+            <li><a href="#shop" onclick="window.filterByCategory('Gaming')"><i class="fa-solid fa-chevron-right"></i> Gaming Gear</a></li>
+          </ul>
+        </div>
+
+        <!-- Customer Service -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Customer Service</h4>
+          <ul class="footer-links">
+            <li><a href="#contact"><i class="fa-solid fa-chevron-right"></i> Track Order</a></li>
+            <li><a href="#contact"><i class="fa-solid fa-chevron-right"></i> Warranty Claims</a></li>
+            <li><a href="#contact"><i class="fa-solid fa-chevron-right"></i> Shipping & Delivery</a></li>
+            <li><a href="#contact"><i class="fa-solid fa-chevron-right"></i> 30-Day Returns</a></li>
+            <li><a href="#contact"><i class="fa-solid fa-chevron-right"></i> Privacy Policy</a></li>
+            <li><a href="#contact"><i class="fa-solid fa-chevron-right"></i> Terms & Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <p class="copyright-text">
+          &copy; <span id="currentYear">2026</span> <strong>ElectroMart Inc.</strong> All rights reserved. Next-Gen Tech Store.
+        </p>
+        <div class="payment-methods">
+          <span class="pay-tag" title="Apple Pay"><i class="fa-brands fa-apple-pay"></i> Apple Pay</span>
+          <span class="pay-tag" title="Google Pay"><i class="fa-brands fa-google-pay"></i> Google Pay</span>
+          <span class="pay-tag" title="Visa"><i class="fa-brands fa-cc-visa"></i> Visa</span>
+          <span class="pay-tag" title="Mastercard"><i class="fa-brands fa-cc-mastercard"></i> Mastercard</span>
+          <span class="pay-tag" title="PayPal"><i class="fa-brands fa-paypal"></i> PayPal</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SHOPPING CART DRAWER -->
+  <div class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+    <div class="cart-drawer-header">
+      <div class="cart-title-row">
+        <h3><i class="fa-solid fa-bag-shopping"></i> Shopping Cart</h3>
+        <span class="cart-header-count" id="cartDrawerCount">0 Items</span>
+      </div>
+      <button class="drawer-close-btn" id="cartCloseBtn" aria-label="Close Cart">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Free Shipping Progress Bar -->
+    <div class="cart-shipping-notice" id="cartShippingNotice">
+      <div class="shipping-bar-text" id="shippingBarText">
+        Add <strong>$99.00</strong> more to unlock <strong>FREE Express Shipping</strong>!
+      </div>
+      <div class="shipping-progress">
+        <div class="shipping-progress-fill" id="shippingProgressFill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items Scroll List -->
+    <div class="cart-items-list" id="cartItemsList">
+      <!-- Items dynamically populated via JavaScript -->
+    </div>
+
+    <!-- Empty Cart UI -->
+    <div class="cart-empty-view" id="cartEmptyView">
+      <i class="fa-solid fa-cart-arrow-down"></i>
+      <h4>Your Cart is Empty</h4>
+      <p>Explore our electronics catalog to discover flagship devices and gear.</p>
+      <button class="btn btn-primary" onclick="window.closeCartDrawer(); window.location.hash='#shop';">Start Shopping</button>
+    </div>
+
+    <!-- Cart Footer & Checkout Summary -->
+    <div class="cart-drawer-footer" id="cartDrawerFooter">
+      <div class="coupon-box">
+        <input type="text" id="couponCodeInput" placeholder="Discount code (try TECH10)">
+        <button type="button" class="btn btn-outline btn-sm" id="applyCouponBtn">Apply</button>
+      </div>
+      <div class="coupon-feedback" id="couponFeedback"></div>
+
+      <div class="cart-summary-breakdown">
+        <div class="summary-line">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">$0.00</span>
+        </div>
+        <div class="summary-line discount-line" id="discountSummaryLine" style="display: none;">
+          <span>Promo Discount (<span id="discountTag">10%</span>)</span>
+          <span id="cartDiscount" class="text-accent">- $0.00</span>
+        </div>
+        <div class="summary-line">
+          <span>Shipping</span>
+          <span id="cartShipping">Calculated at checkout</span>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-line total-line">
+          <span>Estimated Total</span>
+          <span id="cartTotal" class="total-amount">$0.00</span>
+        </div>
+      </div>
+
+      <div class="cart-actions-row">
+        <button class="btn btn-outline btn-sm" id="clearCartBtn" title="Empty all items">
+          <i class="fa-solid fa-trash-can"></i> Clear Cart
+        </button>
+        <button class="btn btn-primary btn-checkout" id="checkoutBtn">
+          <span>Proceed to Checkout</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- WISHLIST DRAWER -->
+  <div class="wishlist-drawer" id="wishlistDrawer" role="dialog" aria-modal="true" aria-label="My Wishlist">
+    <div class="cart-drawer-header">
+      <div class="cart-title-row">
+        <h3><i class="fa-solid fa-heart"></i> My Wishlist</h3>
+        <span class="cart-header-count" id="wishlistDrawerCount">0 Items</span>
+      </div>
+      <button class="drawer-close-btn" id="wishlistCloseBtn" aria-label="Close Wishlist">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="wishlist-items-list" id="wishlistItemsList">
+      <!-- Items dynamically populated via JavaScript -->
+    </div>
+
+    <div class="cart-empty-view" id="wishlistEmptyView">
+      <i class="fa-regular fa-heart"></i>
+      <h4>Your Wishlist is Empty</h4>
+      <p>Save items you desire by clicking the heart icon on any device card.</p>
+      <button class="btn btn-primary" onclick="window.closeWishlistDrawer(); window.location.hash='#shop';">Explore Devices</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT QUICK VIEW MODAL -->
+  <div class="modal-overlay" id="quickViewModal" role="dialog" aria-modal="true" aria-labelledby="modalProductName">
+    <div class="quick-view-container">
+      <button class="modal-close-btn" id="quickViewCloseBtn" aria-label="Close Modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="quick-view-content" id="quickViewContent">
+        <!-- Dynamically populated product modal details -->
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKOUT SUCCESS MODAL -->
+  <div class="modal-overlay" id="checkoutModal" role="dialog" aria-modal="true">
+    <div class="checkout-modal-card">
+      <div class="checkout-success-icon">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <h2>Order Confirmed!</h2>
+      <p class="order-id-label">Order #<span id="checkoutOrderNumber">EM-89241</span></p>
+      <p class="order-desc">Thank you for ordering with <strong>ElectroMart</strong>. A confirmation email with courier tracking details has been sent to your email.</p>
+      <div class="order-summary-box" id="checkoutOrderSummary">
+        <!-- Rendered total summary -->
+      </div>
+      <button class="btn btn-primary btn-block" id="continueShoppingBtn">Continue Shopping</button>
+    </div>
+  </div>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="backToTopBtn" title="Back to top" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Application Script -->
+  <script src="script.js"></script>
+</body>
+</html>
